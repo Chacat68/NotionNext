@@ -10,12 +10,13 @@ import NavPostItem from './NavPostItem'
  * @constructor
  */
 const NavPostList = (props) => {
-  const { filteredPostGroups } = props
+  const { posts = [], currentSearch } = props
+  const filteredPosts = Object.assign(posts)
   const router = useRouter()
   let selectedSth = false
 
   // 处理是否选中
-  filteredPostGroups?.map((group) => {
+  filteredPosts.map((group) => {
     let groupSelected = false
     for (const post of group?.items) {
       if (router.asPath.split('?')[0] === '/' + post.slug) {
@@ -28,16 +29,16 @@ const NavPostList = (props) => {
   })
 
   // 如果都没有选中默认打开第一个
-  if (!selectedSth && filteredPostGroups && filteredPostGroups?.length > 0) {
-    filteredPostGroups[0].selected = true
+  if (!selectedSth && filteredPosts && filteredPosts.length > 0) {
+    filteredPosts[0].selected = true
   }
 
-  if (!filteredPostGroups || filteredPostGroups.length === 0) {
-    return <NavPostListEmpty />
+  if (!filteredPosts || filteredPosts.length === 0) {
+    return <NavPostListEmpty currentSearch={currentSearch} />
   } else {
-    return <div id='posts-wrapper' className='w-full flex-grow'>
+    return <div className='w-full flex-grow'>
             {/* 文章列表 */}
-            {filteredPostGroups?.map((group, index) => <NavPostItem key={index} group={group} onHeightChange={props.onHeightChange}/>)}
+            {filteredPosts?.map((group, index) => <NavPostItem key={index} group={group} onHeightChange={props.onHeightChange}/>)}
         </div>
   }
 }

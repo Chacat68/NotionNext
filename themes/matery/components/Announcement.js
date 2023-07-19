@@ -5,7 +5,7 @@ const NotionPage = dynamic(() => import('@/components/NotionPage'))
 
 const Announcement = ({ notice }) => {
   const { locale } = useGlobal()
-  if (!notice || Object.keys(notice).length === 0) {
+  if (!notice) {
     return <></>
   }
   return <div className="px-3 w-full">

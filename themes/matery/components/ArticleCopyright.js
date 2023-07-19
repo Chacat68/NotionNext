@@ -3,7 +3,7 @@ import { useGlobal } from '@/lib/global'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import CONFIG from '../config'
+import CONFIG_MATERY from '../config_matery'
 
 export default function ArticleCopyright () {
   const router = useRouter()
@@ -14,7 +14,7 @@ export default function ArticleCopyright () {
 
   const { locale } = useGlobal()
 
-  if (!CONFIG.ARTICLE_COPYRIGHT) {
+  if (!CONFIG_MATERY.ARTICLE_COPYRIGHT) {
     return <></>
   }
 

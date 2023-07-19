@@ -4,12 +4,11 @@ import React from 'react'
 import Card from './Card'
 import CategoryGroup from './CategoryGroup'
 import TagGroups from './TagGroups'
-import CONFIG from '../config'
+import CONFIG_NEXT from '../config_next'
 import { useRouter } from 'next/router'
 import BLOG from '@/blog.config'
 import dynamic from 'next/dynamic'
 import Announcement from './Announcement'
-import LatestPostsGroup from './LatestPostsGroup'
 const NextRecentComments = dynamic(() => import('./NextRecentComments'))
 
 /**
@@ -23,14 +22,14 @@ const NextRecentComments = dynamic(() => import('./NextRecentComments'))
  * @constructor
  */
 const SideAreaRight = (props) => {
-  const { tagOptions, currentTag, slot, categoryOptions, currentCategory, notice, latestPosts } = props
+  const { tagOptions, currentTag, slot, categoryOptions, currentCategory, notice } = props
   const { locale } = useGlobal()
   const router = useRouter()
   const announcementVisible = notice && Object.keys(notice).length > 0
 
   return (<aside id='right' className={(BLOG.LAYOUT_SIDEBAR_REVERSE ? 'mr-4' : 'ml-4') + ' space-y-4 hidden xl:block flex-col w-60 relative z-10'}>
 
-        {CONFIG.RIGHT_AD && <Card className='mb-2'>
+        {CONFIG_NEXT.RIGHT_AD && <Card className='mb-2'>
             {/* 展示广告  */}
             <ins
                 className='adsbygoogle'
@@ -49,11 +48,10 @@ const SideAreaRight = (props) => {
                 <Announcement post={notice} />
             </Card>}
 
-            {CONFIG.RIGHT_LATEST_POSTS && <Card><LatestPostsGroup latestPosts={latestPosts} /></Card>}
             {slot}
 
             {/* 分类  */}
-            {CONFIG.RIGHT_CATEGORY_LIST && router.asPath !== '/category' && categoryOptions && (
+            {CONFIG_NEXT.RIGHT_CATEGORY_LIST && router.asPath !== '/category' && categoryOptions && (
                 <Card>
                     <div className='text-sm px-2 flex flex-nowrap justify-between font-light'>
                         <div className='pb-2 text-gray-600 dark:text-gray-300'><i className='mr-2 fas fa-th-list' />{locale.COMMON.CATEGORY}</div>
@@ -70,7 +68,7 @@ const SideAreaRight = (props) => {
                 </Card>
             )}
 
-            {CONFIG.RIGHT_TAG_LIST && router.asPath !== '/tag' && tagOptions && (
+            {CONFIG_NEXT.RIGHT_TAG_LIST && router.asPath !== '/tag' && tagOptions && (
                 <Card>
                     <div className="text-sm pb-1 px-2 flex flex-nowrap justify-between font-light dark:text-gray-200">
                         <div className="text-gray-600 dark:text-gray-200">

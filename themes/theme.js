@@ -2,10 +2,15 @@ import cookie from 'react-cookies'
 import BLOG from '@/blog.config'
 import { getQueryParam, getQueryVariable } from '../lib/utils'
 import dynamic from 'next/dynamic'
-import getConfig from 'next/config'
+// 使用 __THEME__ 变量来动态导入主题组件
 import * as ThemeComponents from '@theme-components'
-// 所有主题在next.config.js中扫描
-export const { THEMES = [] } = getConfig().publicRuntimeConfig
+/**
+ * 所有主题枚举
+ */
+export const ALL_THEME = [
+  'hexo', 'matery', 'next', 'medium', 'fukasawa', 'nobelium', 'example', 'simple', 'gitbook'
+]
+
 /**
  * 加载主题文件
  * 如果是
@@ -16,14 +21,14 @@ export const getLayoutByTheme = (router) => {
   const themeQuery = getQueryParam(router.asPath, 'theme') || BLOG.THEME
   const layout = getLayoutNameByPath(router.pathname)
   if (themeQuery !== BLOG.THEME) {
-    return dynamic(() => import(`@/themes/${themeQuery}`).then(m => m[layout]), { ssr: true })
+    return dynamic(() => import(`@/themes/${themeQuery}/${layout}`), { ssr: true })
   } else {
     return ThemeComponents[layout]
   }
 }
 
 /**
- * 根据路径 获取对应的layout
+ * 路径 对应的Layout名称
  * @param {*} path
  * @returns
  */
@@ -31,24 +36,30 @@ export const getLayoutNameByPath = (path) => {
   switch (path) {
     case '/':
       return 'LayoutIndex'
+    case '/page/[page]':
+      return 'LayoutPage'
     case '/archive':
       return 'LayoutArchive'
-    case '/page/[page]':
-    case '/category/[category]':
-    case '/category/[category]/page/[page]':
-    case '/tag/[tag]':
-    case '/tag/[tag]/page/[page]':
-      return 'LayoutPostList'
     case '/search':
+      return 'LayoutSearch'
     case '/search/[keyword]':
+      return 'LayoutSearch'
     case '/search/[keyword]/page/[page]':
       return 'LayoutSearch'
     case '/404':
       return 'Layout404'
     case '/tag':
       return 'LayoutTagIndex'
+    case '/tag/[tag]':
+      return 'LayoutTag'
+    case '/tag/[tag]/page/[page]':
+      return 'LayoutTag'
     case '/category':
       return 'LayoutCategoryIndex'
+    case '/category/[category]':
+      return 'LayoutCategory'
+    case '/category/[category]/page/[page]':
+      return 'LayoutCategory'
     default:
       return 'LayoutSlug'
   }

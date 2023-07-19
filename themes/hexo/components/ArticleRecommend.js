@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import CONFIG from '../config'
+import CONFIG_HEXO from '../config_hexo'
 import BLOG from '@/blog.config'
 import { useGlobal } from '@/lib/global'
 
@@ -12,7 +12,7 @@ export default function ArticleRecommend({ recommendPosts, siteInfo }) {
   const { locale } = useGlobal()
 
   if (
-    !CONFIG.ARTICLE_RECOMMEND ||
+    !CONFIG_HEXO.ARTICLE_RECOMMEND ||
     !recommendPosts ||
     recommendPosts.length === 0
   ) {

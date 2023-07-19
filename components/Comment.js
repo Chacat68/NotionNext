@@ -54,12 +54,7 @@ const ValineComponent = dynamic(() => import('@/components/ValineComponent'), {
   ssr: false
 })
 
-/**
- * 评论组件
- * @param {*} param0
- * @returns
- */
-const Comment = ({ frontMatter, className }) => {
+const Comment = ({ frontMatter }) => {
   const router = useRouter()
 
   if (isBrowser() && ('giscus' in router.query || router.query.target === 'comment')) {
@@ -75,7 +70,7 @@ const Comment = ({ frontMatter, className }) => {
   }
 
   return (
-    <div key={frontMatter?.id} id='comment' className={`comment mt-5 text-gray-800 dark:text-gray-300 ${className || ''}`}>
+    <div id='comment' className='comment mt-5 text-gray-800 dark:text-gray-300'>
         <Tabs>
 
             {BLOG.COMMENT_TWIKOO_ENV_ID && (<div key='Twikoo'>

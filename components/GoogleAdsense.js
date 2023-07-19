@@ -2,10 +2,6 @@ import BLOG from '@/blog.config'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-/**
- * 初始化谷歌广告
- * @returns
- */
 export default function GoogleAdsense() {
   const initGoogleAdsense = () => {
     setTimeout(() => {
@@ -25,8 +21,12 @@ export default function GoogleAdsense() {
   }
 
   const router = useRouter()
+
   useEffect(() => {
-    initGoogleAdsense()
+    router.events.on('routeChangeComplete', initGoogleAdsense)
+    return () => {
+      router.events.off('routeChangeComplete', initGoogleAdsense)
+    }
   }, [router])
 
   return null

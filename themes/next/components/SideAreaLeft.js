@@ -7,9 +7,8 @@ import React from 'react'
 import Tabs from '@/components/Tabs'
 import Logo from './Logo'
 import Card from './Card'
-import CONFIG from '../config'
+import CONFIG_NEXT from '../config_next'
 import BLOG from '@/blog.config'
-import Live2D from '@/components/Live2D'
 
 /**
  * 侧边平铺
@@ -34,7 +33,7 @@ const SideAreaLeft = props => {
                 <div className='pt-2 px-2 font-sans'>
                     <MenuList allowCollapse={true} {...props} />
                 </div>
-                {CONFIG.MENU_SEARCH && <div className='px-2 pt-2 font-sans'>
+                {CONFIG_NEXT.MENU_SEARCH && <div className='px-2 pt-2 font-sans'>
                     <SearchInput {...props} />
                 </div>}
 
@@ -67,10 +66,9 @@ const SideAreaLeft = props => {
                 </Tabs>
             </Card>
 
-            <div className='flex justify-center'>
+            {slot && <div className='flex justify-center'>
                 {slot}
-                <Live2D />
-            </div>
+            </div>}
         </div>
 
     </aside>

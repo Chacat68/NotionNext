@@ -8,7 +8,7 @@ import { useEffect, useRef } from 'react'
  * @param validPassword(bool) 回调函数，校验正确回调入参为true
  * @returns
  */
-const ArticleLock = props => {
+export const ArticleLock = props => {
   const { validPassword } = props
   const { locale } = useGlobal()
 
@@ -58,5 +58,3 @@ const ArticleLock = props => {
     </div>
   </div>)
 }
-
-export default ArticleLock

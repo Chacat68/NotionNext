@@ -1,8 +1,5 @@
-import { useGitBookGlobal } from '@/themes/gitbook'
+import { useGitBookGlobal } from '../LayoutBase'
 
-/**
- * 移动端悬浮目录按钮
- */
 export default function FloatTocButton () {
   const { tocVisible, changeTocVisible } = useGitBookGlobal()
 
@@ -17,7 +14,7 @@ export default function FloatTocButton () {
       }
     >
       <a
-        id="toc-button"
+        id="darkModeButton"
         className={'fa-list-ol cursor-pointer fas hover:scale-150 transform duration-200'}
       />
     </div>

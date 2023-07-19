@@ -1,5 +1,5 @@
 import React from 'react'
-import CONFIG from '../config'
+import CONFIG_MATERY from '../config_matery'
 
 /**
  * 跳转到评论区
@@ -7,7 +7,7 @@ import CONFIG from '../config'
  * @constructor
  */
 const JumpToCommentButton = () => {
-  if (!CONFIG.WIDGET_TO_COMMENT) {
+  if (!CONFIG_MATERY.WIDGET_TO_COMMENT) {
     return <></>
   }
 

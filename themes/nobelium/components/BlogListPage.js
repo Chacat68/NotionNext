@@ -19,7 +19,7 @@ export const BlogListPage = props => {
   return (
       <div className="w-full md:pr-12 mb-12">
 
-            <div id="posts-wrapper">
+            <div id="container">
                 {posts?.map(post => (
                    <BlogPost key={post.id} post={post}/>
                 ))}

@@ -48,7 +48,7 @@ const Slug = props => {
             })
           }
         }
-      }, 8 * 1000) // 404时长 8秒
+      }, 5 * 1000) // 404时长 8秒
     }
 
     // 文章加密
@@ -96,7 +96,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
   let fullSlug = slug.join('/')
-  if (JSON.parse(BLOG.PSEUDO_STATIC)) {
+  if (BLOG.PSEUDO_STATIC) {
     if (!fullSlug.endsWith('.html')) {
       fullSlug += '.html'
     }

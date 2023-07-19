@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useGlobal } from '@/lib/global'
+import formatDate from '@/lib/formatDate'
 import TagItemMiddle from './TagItemMiddle'
 import WordCount from './WordCount'
 
@@ -7,6 +8,7 @@ export const ArticleInfo = (props) => {
   const { post } = props
 
   const { locale } = useGlobal()
+  const date = formatDate(post?.publishTime, locale.LOCALE)
 
   return (
       <section className='mb-3 dark:text-gray-200'>
@@ -27,7 +29,7 @@ export const ArticleInfo = (props) => {
                         passHref
                         className="cursor-pointer whitespace-nowrap">
 
-                        <i className='far fa-calendar-minus fa-fw'/> {locale.COMMON.POST_TIME}:{post?.publishTime}
+                        <i className='far fa-calendar-minus fa-fw'/> {locale.COMMON.POST_TIME}:{date}
 
                     </Link>
                     <span className='whitespace-nowrap'>

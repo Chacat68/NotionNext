@@ -3,10 +3,10 @@ import { useGlobal } from '@/lib/global'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import CONFIG from '../config'
+import CONFIG_HEXO from '../config_hexo'
 
 export default function ArticleCopyright () {
-  if (!CONFIG.ARTICLE_COPYRIGHT) {
+  if (!CONFIG_HEXO.ARTICLE_COPYRIGHT) {
     return <></>
   }
   const router = useRouter()
