@@ -22,11 +22,11 @@ const Style = () => {
 
     // 目录组件样式
     .catalog-container {
-      position: absolute;
-      left: 0;
-      top: 0;
-      margin-left: 20rem; /* 调整此值以控制目录与文章的距离 */
-      max-width: 12rem;
+      position: absolute; // 绝对定位，使元素相对于最近的已定位祖先元素进行定位
+      left: 0; // 元素左边缘与包含块的左边缘对齐
+      top: 0; // 元素上边缘与包含块的上边缘对齐
+      margin-left: 20rem; // 左外边距为 20rem，用于控制目录与文章的距离
+      max-width: 15rem; // 最大宽度为 12rem，防止目录过宽
     }
 
   `}</style>
