@@ -227,7 +227,7 @@ const LayoutSlug = props => {
       setTimeout(
         () => {
           if (isBrowser) {
-            const article = document.querySelector('#article-wrapper #notion-article')
+            const article = document.getElementById('notion-article')
             if (!article) {
               router.push('/404').then(() => {
                 console.warn('找不到页面', router.asPath)
@@ -243,7 +243,7 @@ const LayoutSlug = props => {
     <>
       {lock && <ArticleLock validPassword={validPassword} />}
 
-      {!lock && post && (
+      {!lock && (
         <div className='px-2'>
           <>
             <ArticleInfo post={post} />

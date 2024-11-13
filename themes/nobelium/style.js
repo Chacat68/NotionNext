@@ -7,23 +7,12 @@
 const Style = () => {
   return <style jsx global>{`
     
-    /* 底色 */
+    // 底色
     .dark body{
         background-color: black;
-    }
-
-    /* 标签列表样式 */
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap; /* 添加此行使标签自动换行 */
-      overflow-x: auto;
     }
 
   `}</style>
 }
 
 export { Style }
-
-
-
-
