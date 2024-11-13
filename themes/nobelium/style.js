@@ -22,9 +22,10 @@ const Style = () => {
 
     // 目录组件样式
     .catalog-container {
-      position: absolute; // 绝对定位，使元素相对于最近的已定位祖先元素进行定位
-      left: 0; // 元素左边缘与包含块的左边缘对齐
-      top: 0; // 元素上边缘与包含块的上边缘对齐
+      position: relative; // 相对定位，使元素相对于其正常位置进行定位
+      top: 50%; // 将元素从顶部向下移动50%
+      left: 50%; // 将元素从左侧向右移动50%
+      transform: translate(-50%, -50%); // 使用transform将元素的中心点移动到屏幕的中间
       margin-left: 120rem; // 左外边距为 20rem，用于控制目录与文章的距离
       max-width: 15rem; // 最大宽度为 12rem，防止目录过宽
     }
