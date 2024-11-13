@@ -1,5 +1,5 @@
 
-import Image from 'next/image'
+import Image from 'public/avatar.svg'
 import TagItem from './TagItem'
 import md5 from 'js-md5'
 import { siteConfig } from '@/lib/config'
