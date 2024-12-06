@@ -20,12 +20,12 @@ const BLOG = {
   // 3.14.1版本后，欢迎语在此配置，英文逗号隔开 ,  即可支持多个欢迎语打字效果。
   GREETING_WORDS:
     process.env.NEXT_PUBLIC_GREETING_WORDS ||
-    '莫听穿林打叶声，何妨吟啸且徐行',
+    '生活的智慧在于逐渐澄清滤除那些不重要的杂质，而保留最重要的部分',
 
   CUSTOM_MENU: process.env.NEXT_PUBLIC_CUSTOM_MENU || true, // 支持Menu 类型，从3.12.0版本起，各主题将逐步支持灵活的二级菜单配置，替代了原来的Page类型，此配置是试验功能、默认关闭。
 
   AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'CHACAT', // 您的昵称 例如 tangly1024
-  BIO: process.env.NEXT_PUBLIC_BIO || '莫听穿林打叶声，何妨吟啸且徐行', // 作者简介
+  BIO: process.env.NEXT_PUBLIC_BIO || 'I think a life properly lived is just learn, learn, learn all the time.', // 作者简介
   LINK: process.env.NEXT_PUBLIC_LINK || 'https://www.chawfoo.com', // 网站地址
   KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || 'ai,game,阅读,旅行,游戏,思考,Notion,AIGC,Obisidian,开发,写作,港乐,粤语,音乐,诗句,动漫', // 网站关键词 英文逗号隔开
 
